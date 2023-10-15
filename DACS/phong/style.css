@@ -43,6 +43,7 @@ span , .body-main{
     font-size: 1rem;
     
 }
+
 .bar_search .btn_sear button {
     padding: 0.5rem 1rem 11px 5px;
     border: none;
@@ -52,3 +53,120 @@ span , .body-main{
     font-weight: 600;
 
 }
+.room_status{
+    margin-left: 2rem;
+    border-radius: 4px;
+}
+
+/* Start title */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#header{
+    background-color: #3399FF;
+    width: 100%;
+    height: 45px
+}
+.header_1{
+    display: flex;
+}
+.header_left{
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 14px 0 14px 44px;
+    position: relative;
+}
+.header_right{
+    position: absolute;
+    right: 0;
+    padding: 14px 44px 14px 0px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+.main{
+    display: flex;
+    background-color: #CCCCCC;
+}
+
+.main_left{
+    width: 18%;
+    background-color: #777777;
+    height: 628px;
+    position: relative;
+}
+.main_left a {
+    display: block;
+    text-decoration: none; /* Xóa gạch chân dưới liên kết */
+    padding: 15px 22px;
+    background-color: #DDDDDD;
+    color: black;
+    font-weight: bold;
+}
+.main_left .content1 {
+    background-color: black;
+    color: white;
+}
+
+.main_left a:hover{
+    background-color: black;
+    color: white;
+}
+
+.main_manager{
+    position: absolute;
+    width: 77%;
+    height: 40%;
+    background-color: #EEEEEE;
+    left: 21%;
+    top: 10%;
+}
+.main_manager_frame{
+    width: 96%;
+    height: 88%;
+    margin: 15px 20px;
+}
+
+.main_manager_frame>p{
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px 0;
+}
+.main_manager_bottom{
+    display: flex;
+}
+.main_content{
+    border: 1px solid #3399FF;
+    width: 300px;
+    height: 155px;
+    margin: 15px 20px;
+    border-radius: 3px;
+}
+.main_content1{
+    background-color: #3399FF;
+    width: 298px;
+    height: 120px;
+    border-radius: 3px 3px 0 0;
+}
+.main_content1 p{
+    padding: 49px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+.main_content2 p{
+    padding-left: 255px;
+    padding-top: 5px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+
+
+/* ENd title */

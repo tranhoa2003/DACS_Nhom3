@@ -14,25 +14,56 @@
     />
   </head>
   <body>
-    <h1>NHÀ TRỌ VĂN MINH THÂN THIỆN</h1>
-    <span class="heading-address">Địa chỉ: tầng 15 a9 đại học Phenikaa</span>
-    <span class="heading-phone">SDT: 0397269518</span>
-    <span class="heading-email">Email: Doanhthang16@gmail.com</span>
-    <div class="body-main">
-      <div class="body-title">
-        <i class="fa-solid fa-share-nodes"></i>
-        <span>Phòng</span>
+    <div id="header">
+      <div class="header_1">
+        <div class="header_left">Quản lý trọ cho thuê</div>
+        <div class="header_right">
+          <p>Admin</p>
+        </div>
       </div>
-      <div class="body_search">
-        <div class="bar_search">
-          <div class="ip_btn">
-            <input type="text" placeholder="Tìm kiếm phòng..." />
+    </div>
+    <div class="main">
+      <div class="main_left">
+        <a class="content1" href="">Dashboard</a>
+        <a href="">House Type</a>
+        <a href="">House</a>
+        <a href="">Tenants</a>
+        <a href="">Reports</a>
+      </div>
+      <div class="main_right">
+        <h1>NHÀ TRỌ VĂN MINH THÂN THIỆN</h1>
+        <span class="heading-address"
+          >Địa chỉ: tầng 15 a9 đại học Phenikaa</span
+        >
+        <span class="heading-phone">SDT: 0397269518</span>
+        <span class="heading-email">Email: Doanhthang16@gmail.com</span>
+        <div class="body-main">
+          <div class="body-title">
+            <i class="fa-solid fa-share-nodes"></i>
+            <span>Phòng</span>
           </div>
-          <div class="btn_sear">
-            <button id="btn_search">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <span class="btn_search">Tìm kiếm</span>
-            </button>
+          <div class="body_search">
+            <form class="bar_search">
+              <div class="ip_btn">
+                <input id="btn_search" type="text" placeholder="Tìm kiếm phòng..." required>
+              </div>
+              <div class="btn_sear">
+                <button id="btn_search" >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <span id="btn_search" class="btn_search">Tìm kiếm</span>
+                </button>
+              </div>
+              <select class="room_status">
+                <option value="roomStatus">Trạng thái phòng</option>
+                <option value="rented">Đã cho thuê</option>
+                <option value="norent">Chưa cho thuê</option>
+              </select>
+            </form>
+          </div>
+          <div class="option_setting">
+            <div class="add_room">Thêm phòng nhanh</div>
+            <div class="setting_house">Sửa nhà</div>
+            <div class="delete_house">Xóa nhà</div>
           </div>
         </div>
       </div>
