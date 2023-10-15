@@ -170,3 +170,29 @@ a{
 
 
 /* ENd title */
+
+/* Start option  */
+.option_setting{
+    margin-top: 2rem;
+    display: flex;
+    font-size: 1rem;
+    justify-content: flex-end;
+}
+.option{
+    padding: 0.5rem;
+    border-radius: 4px;
+    color: #ddd;
+    margin-right: 0.3rem;
+}
+.add_room{
+    background-color: #53cbef;
+
+}
+.setting_house{
+    background-color: #54a6e9;
+}
+.delete_house{
+    background-color: #e04f4a;
+}
+
+/* End option */
