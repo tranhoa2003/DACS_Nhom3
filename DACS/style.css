@@ -106,4 +106,64 @@ a{
     font-weight: bold;
 }
 
+/* -------------house----------------- */
+.house_form{
+    height: 90%;
+    width: 300px;
+    margin: 30px 20px;
+    background-color: #EEEEEE;
+    border-radius: 3px;
+    padding: 20px;
+}
+.house_list{
+    height: 90%;
+    width: 700px;
+    margin: 30px 20px;
+    background-color: #EEEEEE;
+    border-radius: 3px;
+    padding: 20px;
+    
+}
+.house_list p{
+    font-size: 20px; 
+    margin: 10px 0; 
+    text-align: center; 
+}
+.main_right{
+    display: flex;
+}
+
+
+.house_form p {
+    font-size: 20px; 
+    margin: 10px 0; 
+    text-align: center; 
+}
+
+.house_form label {
+    font-weight: bold; 
+    display: block; 
+    margin: 10px 0; 
+}
+
+.house_form input {
+    width: 100%; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 3px; 
+}
+
+.house_form button {
+    background-color: #007BFF;
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-top: 10px; 
+}
+
+.house_form button:hover {
+    background-color: #0056b3; 
+}
 
