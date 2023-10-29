@@ -43,7 +43,9 @@ span , .body-main{
     font-size: 1rem;
     
 }
-
+.main_right{
+    width: 100%;
+}
 .bar_search .btn_sear button {
     padding: 0.5rem 1rem 11px 5px;
     border: none;
@@ -59,6 +61,7 @@ span , .body-main{
 }
 
 /* Start title */
+
 *{
     margin: 0;
     padding: 0;
@@ -94,9 +97,9 @@ span , .body-main{
 }
 
 .main_left{
-    width: 18%;
+    width: 22%;
     background-color: #777777;
-    height: 628px;
+    height: auto;
     position: relative;
 }
 .main_left a {
@@ -173,7 +176,7 @@ a{
 
 /* Start option  */
 .option_setting{
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     font-size: 1rem;
     justify-content: flex-end;
@@ -196,3 +199,74 @@ a{
 }
 
 /* End option */
+/* start container */
+.container{
+    border: #ddd 1px solid;
+    margin: 1rem;
+}
+.box {
+    background-color: #79b7ea;
+    padding: 10px 11px;
+    max-width: 15rem;
+    margin: 10px 31px;
+}
+.box .room_number{
+    color: #605F5F;
+}
+.box .room_number  i , span{
+    font-size: 1.2rem;
+}
+.box .room_money{
+    margin: 1rem 0rem 1rem 0rem;
+}
+.box .room_money  span{
+    color: #D9534F;
+}
+.box .room_money  i{
+    color: #605F5F;
+}
+
+.box .room_hiring i{
+    color: #605F5F;
+}
+.box .room_hiring span{
+    color: #166252;
+}
+.box .room_hiring i , span {
+    font-size: 1rem;
+}
+.box .room_option .btn_view{
+    background-color: #4B5F71;
+    border: #6c7983 solid 2px;
+}
+.box .room_option .btn_fix{
+    background-color: #29cbfc;
+    border: #046f90 solid 2px;
+}
+.box .room_option .btn_check{
+    background-color: #26B99A;
+    border: #34937f solid 2px;
+    
+}
+.box .room_option button{
+    margin: 1rem 0rem 1rem 0rem;
+    padding:0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+.box .room__setting_del button{
+    padding:0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #D9534F;
+}
+.box_room{
+    display: flex;
+    flex-wrap: wrap;
+}
+.box_hiring{
+    background-color: #fff;
+}
+/* begin container */
