@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="room.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="header">
+      <div class="header_1">
+        <div class="header_left">Quản lý trọ cho thuê</div>
+        <div class="header_right">
+          <p>Admin</p>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="main_left">
+        <a href="index.html">Dashboard</a>
+        <a class="content1" href="room.html">House Type</a>
+        <a href="house.html">House</a>
+        <a href="">Tenants</a>
+        <a href="baocao.html">Reports</a>
+      </div>
+      <div class="main_right">
+        <h1>NHÀ TRỌ VĂN MINH THÂN THIỆN</h1>
+        <span class="heading-address"
+          >Địa chỉ: tầng 15 a9 đại học Phenikaa</span
+        >
+        <span class="heading-phone">SDT: 0397269518</span>
+        <span class="heading-email">Email: Doanhthang16@gmail.com</span>
+        <div class="body-main">
+          <div class="body-title">
+            <i class="fa-solid fa-share-nodes"></i>
+            <span>Phòng</span>
+          </div>
+          <div class="body_search">
+            <form class="bar_search">
+              <div class="ip_btn">
+                <input id="btn_search" type="text" placeholder="Tìm kiếm phòng..." required>
+              </div>
+              <div class="btn_sear">
+                <button id="btn_search" >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <span id="btn_search" class="btn_search">Tìm kiếm</span>
+                </button>
+              </div>
+              <select class="room_status">
+                <option value="roomStatus">Trạng thái phòng</option>
+                <option value="rented">Đã cho thuê</option>
+                <option value="norent">Chưa cho thuê</option>
+              </select>
+            </form>
+          </div>
+          <div class="option_setting">
+            <a href="#">
+
+              <div class="option add_room">
+                <i class="fa-solid fa-plus"></i>
+                Thêm phòng
+              </div>
+            </a>
+            <a href="#">
+
+              <div class="option setting_house">
+                <i class="fa-solid fa-tag"></i>
+                Sửa nhà
+              </div>
+            </a>
+            <a href="#">
+
+              <div class="option delete_house">
+                <i class="fa-solid fa-delete-left"></i>
+                Xóa nhà</div>
+            </div>
+            </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
