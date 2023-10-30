@@ -7,7 +7,7 @@
 #header{
     background-color: #3399FF;
     width: 100%;
-    height: 45px
+    height: 45px;
 }
 .header_1{
     display: flex;
@@ -56,10 +56,10 @@
     color: white;
 }
 
-.main_manager{
+.main_manager {
     position: absolute;
     width: 77%;
-    height: 40%;
+    height: 50%;
     background-color: #EEEEEE;
     left: 21%;
     top: 10%;
@@ -108,17 +108,17 @@ a{
 
 /* -------------house----------------- */
 .house_form{
-    height: 90%;
-    width: 300px;
-    margin: 30px 20px;
+    height: 70%;
+    width: 40%;
+    margin: 25px 20px;
     background-color: #EEEEEE;
     border-radius: 3px;
     padding: 20px;
 }
 .house_list{
-    height: 90%;
-    width: 700px;
-    margin: 30px 20px;
+    height: auto;
+    width: 800px;
+    margin: 25px 20px;
     background-color: #EEEEEE;
     border-radius: 3px;
     padding: 20px;
