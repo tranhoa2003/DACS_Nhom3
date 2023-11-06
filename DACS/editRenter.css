@@ -18,6 +18,11 @@ span , .body-main{
 .heading-address , .heading-phone , .heading-email , .body-title{
     color: #2a2929aa;
     font-weight: 500;
+
+}
+.main_right .body-main .body-title{
+    display: flex;
+
 }
 .body-main .body-title span{
     font-size: 1.5rem;
@@ -55,10 +60,17 @@ span , .body-main{
     font-weight: 600;
 
 }
-.room_status{
-    margin-left: 2rem;
+/* start btn add renter */
+.main_right .body-title .btn_add_new_renter .add_renter{
+    padding: 0.8rem;
+    margin-left: 3rem;
+    color: #fff;
+    background: #25B343;
+    border: none;
     border-radius: 4px;
+    
 }
+/* end btn add renter */
 
 /* Start title */
 
@@ -174,111 +186,41 @@ a{
 
 /* ENd title */
 
-/* Start option  */
-.option_setting{
-    margin-top: 1rem;
-    margin-left: 1.8rem;
-    display: flex;
-    font-size: 1rem;
-    justify-content: flex-start;
-}
-.option{
-    padding: 0.5rem;
-    border-radius: 4px;
-    color: #ddd;
-    margin-right: 0.3rem;
-}
-.add_room{
-    background-color: #53cbef;
 
-}
-.setting_house{
-    background-color: #54a6e9;
-}
-.delete_house{
-    background-color: #e04f4a;
-}
-
-/* End option */
-/* start container */
-.container{
-    border: #ddd 1px solid;
-    margin: 1rem;
-}
-.box {
-    background-color: #79b7ea;
-    padding: 10px 11px;
-    max-width: 15rem;
-    margin: 10px 31px;
-}
-.box .room_number{
-    color: #605F5F;
-}
-.box .room_number  i , span{
-    font-size: 1.2rem;
-}
-.box .room_money{
-    margin: 1rem 0rem 1rem 0rem;
-}
-.box .room_money  span{
-    color: #D9534F;
-}
-.box .room_money  i{
-    color: #605F5F;
-}
-
-.box .room_hiring i{
-    color: #605F5F;
-}
-.box .room_hiring span{
-    color: #166252;
-}
-.box .room_hiring i , span {
-    font-size: 1rem;
-}
-.box .room_option .btn_view{
-    background-color: #4B5F71;
-    border: #6c7983 solid 2px;
-}
-.box .room_option .btn_fix{
-    background-color: #29cbfc;
-    border: #046f90 solid 2px;
-}
-.box .room_option .btn_check{
-    background-color: #26B99A;
-    border: #34937f solid 2px;
-    
-}
-.box .room_option button{
-    /* margin: 1rem 0rem 1rem 0rem; */
-    padding:0.3rem 0.6rem;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #fff;
-}
-.box .room__setting_del button{
-    padding:0.3rem 0.6rem;
-    margin-right: 0.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #fff;
-    background-color: #D9534F;
-}
-.box_room{
-    display: flex;
-    flex-wrap: wrap;
-}
-.box_hiring{
+/* start body_main_renter */
+.body_main_edit_renter{
     background-color: #fff;
+    margin: 2rem 1.5rem;
+    border-radius: 2px;
+    border: 1px solid #bfbbbb;
 }
-.btn_in_container{
+/* end body_main_renter */
+
+/* start edit renter */
+.form_edit_renter{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    align-content: center;
+    align-items: center;
+}
+.body_main_edit_renter .nameRenter{
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+.input_inf{
+    width: 75%;
+    padding: 0.8rem;
+}
+.input_date form{
+    margin-right: 64.5%;
+    height: 1rem;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
-    align-content: center;
+
 }
-.room_status_in_box{
-    color: #4B5F71;
-    margin-top: 0.4rem;
+.input_date form input{
+    padding: 0.5rem;
 }
-/* begin container */
+
+/* end edit renter */
