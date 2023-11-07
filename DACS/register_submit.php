@@ -10,13 +10,13 @@ include "config.php";
             header("location:register.php");
         }
         $sql = "SELECT * FROM user WHERE username='$username'";
-        $old = mysqli_query($conn,$sql);
+        $old = mysqli_query($connect,$sql);
         $password = md5($password);
         if(mysqli_num_rows($old) > 0) {
             header("location:register.php");
         }
         $sql = "INSERT INTO user (username,password,level) VALUES ('$username','$password','$level') ";
-        mysqli_query($conn, $sql);
+        mysqli_query($connect, $sql);
         // echo "Đã đăng ký thành công";
         // header("location:index.php");
         header("location:login.php");

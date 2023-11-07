@@ -4,6 +4,9 @@
         header("location:login.php");
     }
 ?>
+<?php 
+    require_once 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,160 +25,31 @@
     />
 </head>
 <body>
-    <div id="header">
-        <div class="header_1">
-            <div class="header_left">
-                Quản lý trọ cho thuê
-            </div>
-            <div class="header_right">
-                <p>Admin</p>
-            </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="main_left">
-            <a href="index.php">Dashboard</a>
-            <a href="room.php">House Type</a>
-            <a class="content1" href="house.php">House</a>
-            <a href="renter.php">Tenants</a>
-            <a href="baocao.php">Reports</a>
-        </div>
-        <div class="main_right">
-            <div class="house_form">
-                <p style="font-weight: bold;">House from</p>
-                <div>                  
-                    <label for="roomNumber"> <i class="fa-solid fa-house"></i>  Room Number</label>
-                    <input type="number" id="roomNumber">
-                </div>
-                <div>
-                    <label for="dayContract"> <i class="fa-solid fa-calendar-days"></i>  Day Contract</label>
-                    <input type="date" id="dayContract">
-                </div>
-                <div>
-                    <label for="deposits"> <i class="fa-solid fa-money-bill"></i>  Deposits</label>
-                    <input type="text" id="deposits">
-                </div>
+    <?php
+        if(isset($_GET['page_layout'])){
+            switch($_GET['page_layout']) {
+                case 'danhsach':
+                    require_once 'nhatro/danhsach.php';
+                    break;
+
+                case 'them':
+                    require_once 'nhatro/them.php';
+                    break;
                 
-                <div>
-                    <button onclick="add()">Submit</button>
-                </div>
-
-
-                <script>
-
-                    // Lấy ô nhập dữ liệu và gắn sự kiện onBlur để định dạng số tiền khi người dùng nhập xong
-                    var depositsInput = document.getElementById("deposits");
-                    depositsInput.addEventListener("blur", formatMoney);
-
-                    function formatMoney() {
-                        // Lấy giá trị nhập vào
-                        var value = depositsInput.value;
-
-                        // Kiểm tra giá trị có chứa dấu "." hoặc "," thì không cần định dạng
-                        if (value.includes(".") || value.includes(",")) {
-                            return;
-                        }
-
-                        // Định dạng giá trị thành kiểu giá tiền Việt Nam
-                        var formattedValue = new Intl.NumberFormat("vi-VN", {
-                            style: "currency",
-                            currency: "VND"
-                        }).format(value);
-
-                        // Gán giá trị đã định dạng vào ô nhập dữ liệu
-                        depositsInput.value = formattedValue;
-                    }
-
-            
-                    var data = []
-
-                    function add() {
-                        var roomNumber = document.getElementById("roomNumber").value
-                        var dayContract = document.getElementById("dayContract").value
-                        var deposits = document.getElementById("deposits").value
-
-                        var item = {
-                            RoomNumber: roomNumber,
-                            DayContract: dayContract,
-                            Deposits: deposits
-                        }
-
-                        let index = data.findIndex((c) => c.RoomNumber == item.RoomNumber)
-
-                        if (index >= 0) {
-                            data.splice(index, 1, item)
-                        } else {
-                            data.push(item)
-                        }
-                        render()
-                        clear()
-                    }
-
-                    function render() {
-                        table = `<tr>
-                            <th>Room Number</th>
-                            <th>Day Contract</th>
-                            <th>Deposits</th>
-                            <th>Action</th>
-                        </tr>`
-                        for (let i = 0; i < data.length; i++) {
-                            table += `<tr>
-                            <td>${data[i].RoomNumber}</td>
-                            <td>${data[i].DayContract}</td>
-                            <td>${data[i].Deposits}</td>
-                            <td> 
-                                <button onclick="deleteItem(${data[i].RoomNumber})">Delete</button>
-                                <button onclick="editItem(${data[i].RoomNumber})">Edit</button>
-                            </td>
-                        </tr>`
-                        }
-                        document.getElementById("render").innerHTML = table
-                    }
-
-                    function clear() {
-                        document.getElementById("roomNumber").value = "";
-                        document.getElementById("dayContract").value = "";
-                        document.getElementById("deposits").value = "";
-                    }
-
-                    function deleteItem(roomNumber) {
-                        var confirmed = window.confirm("Bạn có chắc chắn muốn xóa mục này?");
-                        if(confirmed){
-                            for (let i = 0; i < data.length; i++) {
-                            if (data[i].RoomNumber == roomNumber) {
-                                data.splice(i, 1)
-                                render()
-                                break;
-                            }
-                        }
-                        }
-                    }
-
-                    function editItem(roomNumber) {
-                        for (let i = 0; i < data.length; i++) {
-                            if (data[i].RoomNumber == roomNumber) {
-                                document.getElementById("roomNumber").value = data[i].RoomNumber;
-                                document.getElementById("dayContract").value = data[i].DayContract;
-                                document.getElementById("deposits").value = data[i].Deposits;
-                            }
-                        }
-                    }
-                </script>
-            </div>
-            <div class="house_list">
-                <p style="font-weight: bold;">House list</p>
-                <table class="table" id="render">
-                    <thead>
-                        <tr>
-                            <th>RoomNumber</th>
-                            <th>DayContract</th>
-                            <th>Deposits</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
+                case 'sua':
+                    require_once 'nhatro/sua.php';       
+                    break;        
+                case 'xoa':    
+                    require_once 'nhatro/xoa.php';
+                    break;
+                default:
+                    require_once 'nhatro/danhsach.php';
+                    break;
+            }
+        }else{
+            require_once 'nhatro/danhsach.php';
+        }
+        
+    ?>
 </body>
 </html>

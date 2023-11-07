@@ -6,7 +6,7 @@
     $password = $_POST["password"];
     $password = md5($password);
     $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-    $user = mysqli_query($conn, $sql);
+    $user = mysqli_query($connect, $sql);
     if(mysqli_num_rows($user) > 0){
         $_SESSION["user"] = $username;
         header("location:index.php");

@@ -1,4 +1,9 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","vidu");
-    mysqli_set_charset($conn, "utf8");
+    $connect = mysqli_connect("localhost","root","","vidu");
+    if($connect){
+        mysqli_query($connect, "SET NAMES 'UTF8");
+        // echo "Ket noi thanh cong";
+    }else{
+        echo "Ket noi that bai";
+    }
 ?>
