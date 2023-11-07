@@ -113,6 +113,7 @@ span , .body-main{
     background-color: #777777;
     height: auto;
     position: relative;
+    min-height: 629px;
 }
 .main_left a {
     display: block;

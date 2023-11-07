@@ -1,0 +1,181 @@
+<?php
+    session_start();
+    if( !isset($_SESSION["user"]) ) {
+        header("location:login.php");
+    }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồ án</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="baocao.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+    <div id="header">
+        <div class="header_1">
+            <div class="header_left">
+                Quản lý trọ cho thuê
+            </div>
+            <div class="header_right">
+                <p>Admin</p>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main_left">
+            <a href="index.php">Dashboard</a>
+            <a href="room.php">House Type</a>
+            <a class="content1" href="house.php">House</a>
+            <a href="renter.php">Tenants</a>
+            <a href="baocao.php">Reports</a>
+        </div>
+        <div class="main_right">
+            <div class="house_form">
+                <p style="font-weight: bold;">House from</p>
+                <div>                  
+                    <label for="roomNumber"> <i class="fa-solid fa-house"></i>  Room Number</label>
+                    <input type="number" id="roomNumber">
+                </div>
+                <div>
+                    <label for="dayContract"> <i class="fa-solid fa-calendar-days"></i>  Day Contract</label>
+                    <input type="date" id="dayContract">
+                </div>
+                <div>
+                    <label for="deposits"> <i class="fa-solid fa-money-bill"></i>  Deposits</label>
+                    <input type="text" id="deposits">
+                </div>
+                
+                <div>
+                    <button onclick="add()">Submit</button>
+                </div>
+
+
+                <script>
+
+                    // Lấy ô nhập dữ liệu và gắn sự kiện onBlur để định dạng số tiền khi người dùng nhập xong
+                    var depositsInput = document.getElementById("deposits");
+                    depositsInput.addEventListener("blur", formatMoney);
+
+                    function formatMoney() {
+                        // Lấy giá trị nhập vào
+                        var value = depositsInput.value;
+
+                        // Kiểm tra giá trị có chứa dấu "." hoặc "," thì không cần định dạng
+                        if (value.includes(".") || value.includes(",")) {
+                            return;
+                        }
+
+                        // Định dạng giá trị thành kiểu giá tiền Việt Nam
+                        var formattedValue = new Intl.NumberFormat("vi-VN", {
+                            style: "currency",
+                            currency: "VND"
+                        }).format(value);
+
+                        // Gán giá trị đã định dạng vào ô nhập dữ liệu
+                        depositsInput.value = formattedValue;
+                    }
+
+            
+                    var data = []
+
+                    function add() {
+                        var roomNumber = document.getElementById("roomNumber").value
+                        var dayContract = document.getElementById("dayContract").value
+                        var deposits = document.getElementById("deposits").value
+
+                        var item = {
+                            RoomNumber: roomNumber,
+                            DayContract: dayContract,
+                            Deposits: deposits
+                        }
+
+                        let index = data.findIndex((c) => c.RoomNumber == item.RoomNumber)
+
+                        if (index >= 0) {
+                            data.splice(index, 1, item)
+                        } else {
+                            data.push(item)
+                        }
+                        render()
+                        clear()
+                    }
+
+                    function render() {
+                        table = `<tr>
+                            <th>Room Number</th>
+                            <th>Day Contract</th>
+                            <th>Deposits</th>
+                            <th>Action</th>
+                        </tr>`
+                        for (let i = 0; i < data.length; i++) {
+                            table += `<tr>
+                            <td>${data[i].RoomNumber}</td>
+                            <td>${data[i].DayContract}</td>
+                            <td>${data[i].Deposits}</td>
+                            <td> 
+                                <button onclick="deleteItem(${data[i].RoomNumber})">Delete</button>
+                                <button onclick="editItem(${data[i].RoomNumber})">Edit</button>
+                            </td>
+                        </tr>`
+                        }
+                        document.getElementById("render").innerHTML = table
+                    }
+
+                    function clear() {
+                        document.getElementById("roomNumber").value = "";
+                        document.getElementById("dayContract").value = "";
+                        document.getElementById("deposits").value = "";
+                    }
+
+                    function deleteItem(roomNumber) {
+                        var confirmed = window.confirm("Bạn có chắc chắn muốn xóa mục này?");
+                        if(confirmed){
+                            for (let i = 0; i < data.length; i++) {
+                            if (data[i].RoomNumber == roomNumber) {
+                                data.splice(i, 1)
+                                render()
+                                break;
+                            }
+                        }
+                        }
+                    }
+
+                    function editItem(roomNumber) {
+                        for (let i = 0; i < data.length; i++) {
+                            if (data[i].RoomNumber == roomNumber) {
+                                document.getElementById("roomNumber").value = data[i].RoomNumber;
+                                document.getElementById("dayContract").value = data[i].DayContract;
+                                document.getElementById("deposits").value = data[i].Deposits;
+                            }
+                        }
+                    }
+                </script>
+            </div>
+            <div class="house_list">
+                <p style="font-weight: bold;">House list</p>
+                <table class="table" id="render">
+                    <thead>
+                        <tr>
+                            <th>RoomNumber</th>
+                            <th>DayContract</th>
+                            <th>Deposits</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

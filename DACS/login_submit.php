@@ -11,7 +11,8 @@
         $_SESSION["user"] = $username;
         header("location:index.php");
     }else{
-        echo "Bạn đã đăng nhập thất bại";
+        $_SESSION["login_error"] = "Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại.";
+            header("location:login.php");
     }
 }else{
     header("location:login.php");

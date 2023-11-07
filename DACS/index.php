@@ -1,3 +1,4 @@
+
 <?php
     session_start();
     if( !isset($_SESSION["user"]) ) {
@@ -33,11 +34,11 @@
     </div>
     <div class="main">
         <div class="main_left">
-            <a class="content1" href="index.html">Dashboard</a>
-            <a href="room.html">House Type</a>
-            <a href="house.html">House</a>
-            <a href="renter.html">Tenants</a>
-            <a href="baocao.html">Reports</a>
+            <a class="content1" href="index.php">Dashboard</a>
+            <a href="room.php">House Type</a>
+            <a href="house.php">House</a>
+            <a href="renter.php">Tenants</a>
+            <a href="baocao.php">Reports</a>
         </div>
         <div class="main_right">
             <div class="main_manager">
@@ -52,7 +53,7 @@
                                 <p>Houses</p>
                             </div>
                             <div class="main_content2">
-                                <p><a href="house.html">view</a></p>
+                                <p><a href="house.php">view</a></p>
                             </div>
                         </div>
                         <div class="main_content">
@@ -61,7 +62,7 @@
                                 <p>Tenants</p>
                             </div>
                             <div class="main_content2">
-                                <p><a href="renter.html">view</a></p>
+                                <p><a href="renter.php">view</a></p>
                             </div>
                         </div>
                         <div class="main_content">
@@ -70,7 +71,7 @@
                                 <p>Reports</p>
                             </div>
                             <div class="main_content2">
-                                <p><a href="baocao.html">view</a></p>
+                                <p><a href="baocao.php">view</a></p>
                             </div>
                         </div>
                     </div>
