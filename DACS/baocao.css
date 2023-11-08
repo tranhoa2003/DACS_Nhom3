@@ -47,3 +47,49 @@ button {
 button:hover {
     background-color: #555;
 }
+
+/* log out */
+.logout-link {
+    display: none;
+    color: black; /* Màu đỏ */
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.login-link {
+    display: none;
+    color: #008CBA; /* Màu xanh dương */
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.logout-link {
+    text-decoration: none;
+    list-style: none;
+    position: relative;
+    top: 14px;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.admin-label:active + .login-link {
+    color: #008CBA; /* Màu xanh dương khi hover */
+}
+
+.admin-label:active + .logout-link {
+    display: none;
+}
+
+.admin-label:hover + .login-link {
+    color: #33CC33; /* Màu xanh lá cây khi hover */
+}
+
+.admin-label:hover + .logout-link {
+    color: red;
+}

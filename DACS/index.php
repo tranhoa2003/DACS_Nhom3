@@ -28,8 +28,45 @@
                 Quản lý trọ cho thuê
             </div>
             <div class="header_right">
-                <p>Admin</p>
+                <p class="admin-label" id="adminLabel">Admin</p>
+                <a class="logout-link" id="logoutLink" href="login.php">Log out</a>
+                <a class="login-link" id="loginLink" href="index.php">Login</a>
             </div>
+            <script>
+                var isLoggedIn = <?php echo isset($_SESSION["user"]) ? 'true' : 'false'; ?>;
+                var adminLabel = document.getElementById("adminLabel");
+                var logoutLink = document.getElementById("logoutLink");
+                var loginLink = document.getElementById("loginLink");
+
+                // Tùy chỉnh hiển thị ban đầu dựa trên trạng thái đăng nhập
+                if (isLoggedIn) {
+                    logoutLink.style.display = "none"; // Ẩn nút "Log out" ban đầu
+                    loginLink.style.display = "none"; // Ẩn nút "Login" ban đầu
+                } else {
+                    logoutLink.style.display = "none"; // Ẩn nút "Log out" ban đầu
+                    loginLink.style.display = "inline"; // Hiển thị nút "Login" ban đầu
+                }
+
+                // Xử lý sự kiện click trên "Admin"
+                adminLabel.addEventListener("click", function () {
+                    if (isLoggedIn) {
+                        // Nếu đã đăng nhập, hiển thị "Log out"
+                        logoutLink.style.display = "inline";
+                        loginLink.style.display = "none";
+                    } else {
+                        // Nếu chưa đăng nhập, chuyển người dùng đến trang đăng nhập (Login)
+                        window.location.href = "index.php";
+                    }
+                });
+
+                // Xử lý sự kiện khi di chuyển chuột ra khỏi "Log out"
+                logoutLink.addEventListener("mouseout", function () {
+                    logoutLink.style.display = "none"; // Ẩn nút "Log out" khi di chuyển chuột ra khỏi nó
+                });
+            </script>
+
+
+
         </div>
     </div>
     <div class="main">
