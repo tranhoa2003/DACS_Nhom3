@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2023 at 09:21 AM
+-- Generation Time: Nov 08, 2023 at 01:56 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -39,9 +39,56 @@ CREATE TABLE `house` (
 --
 
 INSERT INTO `house` (`id`, `r_number`, `d_contract`, `deposits`) VALUES
-(6, 22, '12/03/2024', 23443182),
+(6, 22, '12/03/2023', 758798),
 (7, 55, '12/03/2024', 23443182),
-(8, 443, '12/03/2024', 2344434);
+(8, 443, '12/03/2024', 2344434),
+(10, 88, '12/03/2024', 23443434);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `house_type`
+--
+
+CREATE TABLE `house_type` (
+  `id` int(4) NOT NULL,
+  `r_number` int(20) NOT NULL,
+  `r_condition` varchar(50) NOT NULL,
+  `price` int(20) NOT NULL,
+  `convenient` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `house_type`
+--
+
+INSERT INTO `house_type` (`id`, `r_number`, `r_condition`, `price`, `convenient`) VALUES
+(1, 44, 'trống', 242434432, 'có giường đôi'),
+(4, 88, 'đã thuê', 234434243, 'có giường đôi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tenants`
+--
+
+CREATE TABLE `tenants` (
+  `id` int(4) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` int(50) NOT NULL,
+  `r_number` int(20) NOT NULL,
+  `r_amount` int(50) NOT NULL,
+  `co_date` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tenants`
+--
+
+INSERT INTO `tenants` (`id`, `name`, `phone`, `r_number`, `r_amount`, `co_date`) VALUES
+(1, 'Hoa Tran', 123456789, 36, 234423, '12/12/2033'),
+(4, 'Trần Gia Hoà', 363633706, 15, 5435454, '12/01/2024'),
+(5, 'Trần Gia Hoà', 363633706, 22, 2132344, '2/12/2023');
 
 -- --------------------------------------------------------
 
@@ -77,6 +124,18 @@ ALTER TABLE `house`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `house_type`
+--
+ALTER TABLE `house_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tenants`
+--
+ALTER TABLE `tenants`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -90,7 +149,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `house`
 --
 ALTER TABLE `house`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `house_type`
+--
+ALTER TABLE `house_type`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tenants`
+--
+ALTER TABLE `tenants`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`

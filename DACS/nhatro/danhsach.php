@@ -56,9 +56,9 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>RoomNumber</th>
-                                    <th>DayContract</th>
-                                    <th>Deposits</th>
+                                    <th>Số phòng</th>
+                                    <th>Ngày hợp đồng</th>
+                                    <th>Tiền cọc</th>
                                     <th>Sửa</th>
                                     <th>Xoá</th>
                                 </tr>

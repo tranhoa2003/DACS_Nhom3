@@ -1,7 +1,6 @@
 <?php
     $id = $_GET['id'];
 
-    $sql_brand = "SELECT * FROM house";
 
     $sql_up = "SELECT * FROM house where id = $id";
     $query_up = mysqli_query($connect, $sql_up);
@@ -47,17 +46,17 @@
                     <div class="card-body">
                         <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="">RoomNumber <i class="fa-solid fa-hashtag"></i></label>
+                                <label for="">Số phòng <i class="fa-solid fa-hashtag"></i></label>
                                 <input type="text" name="r_number" class="form-control" required value="<?php echo $row_up['r_number']; ?>">
                             </div>
 
                             <div class="form-group">
-                                <label for="">DayContract <i class="fa-solid fa-calendar-days"></i></label>
+                                <label for="">Ngày hợp đồng <i class="fa-solid fa-calendar-days"></i></label>
                                 <input type="text" name="d_contract" class="form-control" required value="<?php echo $row_up['d_contract']; ?>">
                             </div>
 
                             <div class="form-group">
-                                <label for="">Deposits <i class="fa-solid fa-money-bill"></i></label>
+                                <label for="">Tiền cọc <i class="fa-solid fa-money-bill"></i></label>
                                 <input type="number" name="deposits" class="form-control" required value="<?php echo $row_up['deposits']; ?>">
                             </div>
                            
