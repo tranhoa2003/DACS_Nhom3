@@ -72,7 +72,7 @@
     <div class="main">
         <div class="main_left">
             <a class="content1" href="index.php">Dashboard</a>
-            <a href="room.php">House Type</a>
+            <a href="room.php">House List</a>
             <a href="house.php">House</a>
             <a href="renter.php">Tenants</a>
             <a href="baocao.php">Reports</a>
