@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 08, 2023 at 01:56 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th10 10, 2023 lúc 05:45 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `vidu`
+-- Cơ sở dữ liệu: `vidu`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `house`
+-- Cấu trúc bảng cho bảng `finance`
+--
+
+CREATE TABLE `finance` (
+  `id` int(5) NOT NULL,
+  `r_price` int(20) NOT NULL,
+  `r_date` varchar(20) NOT NULL,
+  `r_description` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `finance`
+--
+
+INSERT INTO `finance` (`id`, `r_price`, `r_date`, `r_description`) VALUES
+(1, -250000, '20/2/2023', 'Tien don ve sinh'),
+(2, -100000, '11/3/2022', 'Tien mang'),
+(3, 2000000, '29/6/2023', 'Tien phong 1');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `house`
 --
 
 CREATE TABLE `house` (
@@ -35,7 +57,7 @@ CREATE TABLE `house` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `house`
+-- Đang đổ dữ liệu cho bảng `house`
 --
 
 INSERT INTO `house` (`id`, `r_number`, `d_contract`, `deposits`) VALUES
@@ -47,7 +69,7 @@ INSERT INTO `house` (`id`, `r_number`, `d_contract`, `deposits`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `house_type`
+-- Cấu trúc bảng cho bảng `house_type`
 --
 
 CREATE TABLE `house_type` (
@@ -59,7 +81,7 @@ CREATE TABLE `house_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `house_type`
+-- Đang đổ dữ liệu cho bảng `house_type`
 --
 
 INSERT INTO `house_type` (`id`, `r_number`, `r_condition`, `price`, `convenient`) VALUES
@@ -69,7 +91,7 @@ INSERT INTO `house_type` (`id`, `r_number`, `r_condition`, `price`, `convenient`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tenants`
+-- Cấu trúc bảng cho bảng `tenants`
 --
 
 CREATE TABLE `tenants` (
@@ -82,7 +104,7 @@ CREATE TABLE `tenants` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tenants`
+-- Đang đổ dữ liệu cho bảng `tenants`
 --
 
 INSERT INTO `tenants` (`id`, `name`, `phone`, `r_number`, `r_amount`, `co_date`) VALUES
@@ -93,7 +115,7 @@ INSERT INTO `tenants` (`id`, `name`, `phone`, `r_number`, `r_amount`, `co_date`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -104,7 +126,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
@@ -114,57 +136,69 @@ INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
 (7, 'hoadeptrai', '250cf8b51c773f3f8dc8b4be867a9a02', 0);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `house`
+-- Chỉ mục cho bảng `finance`
+--
+ALTER TABLE `finance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `house`
 --
 ALTER TABLE `house`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `house_type`
+-- Chỉ mục cho bảng `house_type`
 --
 ALTER TABLE `house_type`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tenants`
+-- Chỉ mục cho bảng `tenants`
 --
 ALTER TABLE `tenants`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `house`
+-- AUTO_INCREMENT cho bảng `finance`
+--
+ALTER TABLE `finance`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT cho bảng `house`
 --
 ALTER TABLE `house`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `house_type`
+-- AUTO_INCREMENT cho bảng `house_type`
 --
 ALTER TABLE `house_type`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tenants`
+-- AUTO_INCREMENT cho bảng `tenants`
 --
 ALTER TABLE `tenants`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
