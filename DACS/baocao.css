@@ -93,3 +93,26 @@ button:hover {
 .admin-label:hover + .logout-link {
     color: red;
 }
+
+.main_left{
+    width: 18%;
+    background-color: #777777;
+    min-height: 780px;
+    height: auto;
+    position: relative;
+}
+section input{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 5px;
+    background: greenyellow;
+    margin-top: 10px;
+    border: none;
+}
+section input:hover{
+    background-color: #0d6efd;
+    color: white;
+}
+.btn-primary{
+    margin-top: 10px;
+}
