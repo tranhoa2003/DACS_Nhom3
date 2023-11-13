@@ -4,6 +4,10 @@
     $sql1 = "SELECT * FROM finance";
     $query1 = mysqli_query($connect, $sql1);
     
+    $sql2 = "SELECT * FROM house";
+    $query2 = mysqli_query($connect, $sql2);
+    $sql3 = "SELECT * FROM tenants";
+    $query3 = mysqli_query($connect, $sql3);
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +30,21 @@
         .test:hover{
             border: #F16276 1px solid;
             background-color: #f6b9c2;
+        }
+        /* .section_form{
+            display: flex;
+        } */
+        .form-section{
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .export{
+            border:none; background-color: #C0C0C0; border-radius: 5px; padding: 5px 10px 5px 10px;
+        }
+        .export:hover{
+            background-color: #DDDDDD;
         }
     </style>
 </head>
@@ -86,8 +105,13 @@
             <div class="main_manager" style="height: auto;">
                 <div class="main_manager_frame" >
                     <section>
-                        <h2>Báo cáo tình trạng phòng trọ</h2>
-                        <table id="roomStatusTable">
+                        <div class="form-section">
+                            <h2>Báo cáo tình trạng phòng</h2>
+                            <form action="export_ttphong.php" method = "post">
+                                <input class="export" type="submit" name="export_ttphong" value = "Xuất báo cáo" >
+                            </form>
+                        </div>
+                        <table id="roomStatusTable" class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -112,14 +136,84 @@
                             ?>
                             </tbody>
                         </table>
-                        <form action="export_ttphong.php" method = "post">
-                            <input type="submit" name="export_ttphong" value = "Xuất báo cáo" >
-                        </form>
+                    </section>
+
+                    <section>
+                        <div class="form-section">
+                            <h2>Báo cáo danh sách phòng</h2>
+                            <form action="export_dsphong.php" method = "post">
+                            <input class="export" type="submit" name="export_dsphong" value = "Xuất báo cáo" >
+                        </form> 
+                        </div>
+                        <table id="roomStatusTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Số phòng</th>
+                                    <th>Ngày hợp đồng</th>
+                                    <th>Tiền cọc</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $i = 1;
+                                while($row = mysqli_fetch_assoc($query2)){?>
+                                    <tr>
+                                        <td><?php echo $i++?></td>
+                                        <td><?php echo $row['r_number']; ?></td>
+                                        <td><?php echo $row['d_contract']; ?></td>
+                                        <td><?php echo $row['deposits']; ?></td>
+                                    </tr>
+                                <?php } 
+                            ?>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <div class="form-section">
+                            <h2>Báo cáo người thuê</h2>
+                            <form action="export_ntphong.php" method = "post">
+                                <input class="export" type="submit" name="export_ntphong" value = "Xuất báo cáo" >
+                            </form>
+                        </div>
+                        <table id="roomStatusTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Họ và tên</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Số phòng</th>
+                                    <th>Số tiền thuê</th>
+                                    <th>Hạn thuê</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $i = 1;
+                                while($row = mysqli_fetch_assoc($query3)){?>
+                                    <tr>
+                                        <td><?php echo $i++?></td>
+                                        <td><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['phone']; ?></td>
+                                        <td><?php echo $row['r_number']; ?></td>
+                                        <td><?php echo $row['r_amount']; ?></td>
+                                        <td><?php echo $row['co_date']; ?></td>
+                                    </tr>
+                                <?php } 
+                            ?>
+                            </tbody>
+                        </table>
                     </section>
                     
                     <section>
-                        <h2>Báo cáo thu chi</h2>
-                        <table id="financialReportTable">
+                        <div class="form-section">
+                            <h2>Báo cáo thu chi</h2>
+                            <form action="export_thuchi.php" method = "post">
+                                <input class="export" type="submit" name="export_thuchi" value = "Xuất báo cáo" >
+                            </form>
+                        </div>
+                        <table id="financialReportTable" class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -152,9 +246,6 @@
                             </tbody>
                         </table>
                         <a class="btn btn-primary" href="baocao.php?page_layout=them">Thêm mới</a>
-                        <form action="export_thuchi.php" method = "post">
-                            <input type="submit" name="export_thuchi" value = "Xuất báo cáo" >
-                        </form>
                     </section>
                     
                     <!-- <section> -->
