@@ -35,7 +35,8 @@
 .main_left{
     width: 18%;
     background-color: #777777;
-    height: 628px;
+    min-height: 628px;
+    height: auto;
     position: relative;
 }
 .main_left a {
