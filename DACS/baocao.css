@@ -97,7 +97,7 @@ button:hover {
 .main_left{
     width: 18%;
     background-color: #777777;
-    min-height: 780px;
+    min-height: 1400px;
     height: auto;
     position: relative;
 }
@@ -111,7 +111,7 @@ section input{
 }
 section input:hover{
     background-color: #0d6efd;
-    color: white;
+    color: black;
 }
 .btn-primary{
     margin-top: 10px;
